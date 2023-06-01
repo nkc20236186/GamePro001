@@ -28,11 +28,14 @@ public class KintamaController : MonoBehaviour
         Vector2 p2 = this.eroonna.transform.position;//プレイやの中心座標
         Vector2 dir = p1 - p2;
         float d = dir.magnitude;
-        float r1 = 1.0f;//敵の半径
-        float r2 = 1.0f;//プレイヤの半径
+        float r1 = 0.6f;//敵の半径
+        float r2 = 0.8f;//プレイヤの半径
 
         if (d < r1 + r2)
         {
+            //監督スクリプトにプレイヤと衝突したことを伝える
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().DecreaseHp();
             //衝突した場合は敵を消す
             Destroy(gameObject);
         }
