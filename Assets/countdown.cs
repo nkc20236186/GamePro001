@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
     {
         countdown -= Time.deltaTime;
 
+
         if (countdown <= 0f)
         {
             Debug.Log("I—¹");
